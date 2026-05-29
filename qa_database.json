@@ -1,0 +1,59 @@
+{
+  "JAMB": {
+    "what is jamb": "JAMB stands for Joint Admissions and Matriculation Board. It's a Nigerian entrance examination that students take to gain admission into tertiary institutions.",
+    "jamb registration": "To register for JAMB: 1) Visit jamb.org.ng 2) Create an account 3) Pay registration fee 4) Upload required documents 5) Choose your exam date",
+    "jamb subjects": "JAMB has 4 main subject combinations: Science (Physics, Chemistry, Biology, English), Social Science (Government, Economics, English, History), Humanities (Literature, History, Government, English), Commercial (Economics, Accounting, Business Studies, English)",
+    "jamb cutoff": "JAMB cutoff marks vary yearly and by institution. Generally, cutoffs range from 120-180 out of 400. Check your institution's website for specific requirements.",
+    "jamb exam date": "JAMB exams are conducted twice yearly. Check jamb.org.ng for current exam schedules and registration deadlines.",
+    "jamb score": "JAMB scores are out of 400. Most Nigerian universities require a minimum of 120-140 for admission consideration."
+  },
+  "WAEC": {
+    "what is waec": "WAEC (West African Examinations Council) conducts the WASSCE (West African Senior School Certificate Examination) for secondary school students across West Africa.",
+    "waec registration": "WAEC registration is usually done through your school. Register during the official registration period with required documents and fees.",
+    "waec subjects": "WAEC subjects include: English Language, Mathematics, Science (Physics, Chemistry, Biology), Social Studies, History, Geography, Literature, and vocational subjects.",
+    "waec grades": "WAEC uses grade system: A1 (90-100), B2 (80-89), B3 (70-79), C4 (60-69), C5 (55-59), C6 (50-54), D7 (40-49), E8 (30-39), F9 (0-29)",
+    "waec exam date": "WAEC exams typically hold in March/April and October/November. Check waecnigeria.org for exact dates.",
+    "waec certificate": "You receive a WAEC certificate after completing the WASSCE examination. This is required for tertiary education admission."
+  },
+  "NECO": {
+    "what is neco": "NECO (National Examination Council) is a Nigerian examination body that conducts the NSCE (National Senior Certificate Examination) for secondary school students.",
+    "neco registration": "NECO registration is done through registered centers/schools. Students register during official registration periods with required fees.",
+    "neco subjects": "NECO subjects include: English Language, Mathematics, Science subjects (Physics, Chemistry, Biology), Social Studies, History, Geography, and others.",
+    "neco exam": "NECO conducts exams in June/July and November/December yearly. Check neconic.gov.ng for current schedules.",
+    "neco grading": "NECO uses: A (90-100), B (80-89), C (70-79), D (60-69), E (50-59), F (40-49), G (30-39), H (20-29), I (0-19)",
+    "neco certificate": "NECO certificate is accepted for tertiary education admission in Nigeria and some other countries."
+  },
+  "ICAN": {
+    "what is ican": "ICAN (Institute of Chartered Accountants of Nigeria) is the professional body for accountants in Nigeria offering accounting qualifications.",
+    "ican membership": "ICAN membership requires: Secondary education, Professional accounting qualifications (PE1, PE2, ATS), and practical experience.",
+    "ican exams": "ICAN exams include: PE1 (Preliminary), PE2 (Intermediate), ATS (Advanced Technical Skills), and final professional exams.",
+    "ican fees": "ICAN membership and exam fees vary. Visit icannigeria.org for current fee schedules.",
+    "ican ca qualification": "Completing ICAN exams and requirements makes you a Chartered Accountant (CA(SA)) - recognized professionally in Nigeria.",
+    "ican career": "ICAN qualified professionals work as auditors, tax consultants, financial managers, and accounting practitioners."
+  },
+  "CIPM": {
+    "what is cipm": "CIPM (Chartered Institute of Personnel Management) is Nigeria's professional body for Human Resources and Organizational Development.",
+    "cipm membership": "CIPM membership requires: First degree, CIPM qualifications (foundation and professional levels), and practical HR experience.",
+    "cipm exams": "CIPM exams include foundation level (4 papers), professional level (5 papers), and specialization courses.",
+    "cipm qualification": "CIPM qualification prepares you for professional HR roles in organizations across all sectors.",
+    "cipm fees": "CIPM exam and registration fees vary yearly. Check cipmnigeria.org for current pricing.",
+    "cipm career": "CIPM professionals work as HR managers, recruiters, organizational developers, and training specialists."
+  },
+  "AWS": {
+    "what is aws": "AWS (Amazon Web Services) is a cloud computing platform offering services like computing, storage, databases, and networking.",
+    "aws certification": "AWS certifications include: Cloud Practitioner, Solutions Architect, Developer, SysOps Admin, and specialized certifications.",
+    "aws getting started": "Start with AWS: 1) Create free account 2) Learn on AWS Training 3) Practice with free tier 4) Take certification exams",
+    "aws cloud practitioner": "AWS Cloud Practitioner (CLF-C01) is the foundational certification. It covers cloud concepts, AWS services, billing, and best practices.",
+    "aws solutions architect": "AWS Solutions Architect Associate (SAA-C03) certification validates ability to design scalable AWS applications and architectures.",
+    "aws developer": "AWS Developer Associate (DVA-C02) certification focuses on developing and maintaining AWS applications.",
+    "aws free tier": "AWS Free Tier includes: 12 months free (EC2, RDS, S3), Always free (Lambda, DynamoDB, SNS), and free trials for other services.",
+    "aws services": "Popular AWS services: EC2 (compute), S3 (storage), RDS (database), Lambda (serverless), DynamoDB (NoSQL), CloudFront (CDN).",
+    "aws study tips": "AWS study tips: 1) Hands-on practice 2) Use official training 3) Take practice exams 4) Join AWS community 5) Build projects"
+  },
+  "general": {
+    "help": "Welcome to jimmyconnect! Ask questions about JAMB, WAEC, NECO, ICAN, CIPM, or AWS. Type keywords like 'jamb', 'waec', 'neco', 'ican', 'cipm', or 'aws' with your question.",
+    "menu": "Available topics: JAMB, WAEC, NECO, ICAN, CIPM, AWS. Ask any question about these subjects!",
+    "subscription": "jimmyconnect Premium gives you unlimited access to study materials and expert answers. Subscribe for ₦2,500/month.",
+    "pay": "To subscribe, reply with 'SUBSCRIBE' and we'll send you a payment link via Selar."
+  }
+}
