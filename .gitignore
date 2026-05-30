@@ -42,6 +42,10 @@ users_db.json
 *.sqlite
 *.db
 
+# Google Credentials (NEVER COMMIT)
+google_credentials.json
+**/google_credentials.json
+
 # Logs
 *.log
 logs/
@@ -54,3 +58,10 @@ Thumbs.db
 .pytest_cache/
 .coverage
 htmlcov/
+
+# CSV exports
+*.csv
+*_export.csv
+
+# Backups
+*_backup*.json

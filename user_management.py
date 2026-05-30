@@ -1,15 +1,18 @@
 import json
 import os
 from datetime import datetime, timedelta
-from config import DATABASE_FILE
+from config import USERS_DATABASE_FILE
+import logging
+
+logger = logging.getLogger(__name__)
 
 class UserManager:
     def __init__(self):
-        self.db_file = DATABASE_FILE
+        self.db_file = USERS_DATABASE_FILE
         self.load_database()
     
     def load_database(self):
-        """Load user database from JSON file"""
+        """Load users from JSON file"""
         if os.path.exists(self.db_file):
             with open(self.db_file, 'r') as f:
                 self.users = json.load(f)
@@ -17,78 +20,62 @@ class UserManager:
             self.users = {}
     
     def save_database(self):
-        """Save user database to JSON file"""
+        """Save users to JSON file"""
         with open(self.db_file, 'w') as f:
             json.dump(self.users, f, indent=2)
     
-    def add_user(self, phone_number):
-        """Add a new user"""
+    def add_user(self, phone_number, name=None):
+        """Add or update user"""
         if phone_number not in self.users:
             self.users[phone_number] = {
-                "phone_number": phone_number,
-                "created_at": datetime.now().isoformat(),
-                "subscription_status": "inactive",
-                "subscription_expiry": None,
-                "total_messages": 0,
-                "selar_reference": None
+                'phone_number': phone_number,
+                'name': name or 'Student',
+                'subscription_active': False,
+                'subscription_start': None,
+                'subscription_end': None,
+                'total_messages': 0,
+                'registered_at': datetime.now().isoformat()
             }
-            self.save_database()
-            return True
-        return False
+            logger.info(f"New user added: {phone_number}")
+        self.save_database()
     
     def get_user(self, phone_number):
-        """Get user information"""
-        if phone_number not in self.users:
-            self.add_user(phone_number)
+        """Get user by phone number"""
         return self.users.get(phone_number)
     
     def is_subscribed(self, phone_number):
         """Check if user has active subscription"""
         user = self.get_user(phone_number)
-        if user["subscription_status"] == "active":
-            expiry = datetime.fromisoformat(user["subscription_expiry"])
-            if datetime.now() < expiry:
-                return True
-            else:
-                # Subscription expired
-                self.deactivate_subscription(phone_number)
+        if not user:
+            return False
+        
+        if not user['subscription_active']:
+            return False
+        
+        if user['subscription_end']:
+            end_date = datetime.fromisoformat(user['subscription_end'])
+            if datetime.now() > end_date:
                 return False
+        
+        return True
+    
+    def activate_subscription(self, phone_number, days=30):
+        """Activate subscription for user"""
+        if phone_number in self.users:
+            self.users[phone_number]['subscription_active'] = True
+            self.users[phone_number]['subscription_start'] = datetime.now().isoformat()
+            self.users[phone_number]['subscription_end'] = (datetime.now() + timedelta(days=days)).isoformat()
+            self.save_database()
+            logger.info(f"Subscription activated for {phone_number}")
+            return True
         return False
     
-    def activate_subscription(self, phone_number, selar_reference):
-        """Activate subscription for a user"""
-        user = self.get_user(phone_number)
-        expiry_date = datetime.now() + timedelta(days=30)
-        
-        user["subscription_status"] = "active"
-        user["subscription_expiry"] = expiry_date.isoformat()
-        user["selar_reference"] = selar_reference
-        
-        self.save_database()
-        return True
-    
-    def deactivate_subscription(self, phone_number):
-        """Deactivate subscription for a user"""
-        user = self.get_user(phone_number)
-        user["subscription_status"] = "inactive"
-        self.save_database()
-        return True
-    
     def increment_message_count(self, phone_number):
-        """Increment message count for a user"""
-        user = self.get_user(phone_number)
-        user["total_messages"] = user.get("total_messages", 0) + 1
-        self.save_database()
+        """Increment message count for user"""
+        if phone_number in self.users:
+            self.users[phone_number]['total_messages'] = self.users[phone_number].get('total_messages', 0) + 1
+            self.save_database()
     
     def get_all_users(self):
         """Get all users"""
         return self.users
-    
-    def get_subscription_status(self, phone_number):
-        """Get subscription status message"""
-        user = self.get_user(phone_number)
-        if user["subscription_status"] == "active":
-            expiry = datetime.fromisoformat(user["subscription_expiry"])
-            days_left = (expiry - datetime.now()).days
-            return f"Active (Expires in {days_left} days)"
-        return "Inactive"

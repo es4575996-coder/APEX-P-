@@ -2,6 +2,9 @@ import json
 import os
 from config import QA_DATABASE_FILE
 from difflib import SequenceMatcher
+import logging
+
+logger = logging.getLogger(__name__)
 
 class QAEngine:
     def __init__(self):
@@ -10,8 +13,11 @@ class QAEngine:
     
     def load_qa_database(self):
         """Load Q&A database from JSON file"""
-        with open(self.qa_db_file, 'r') as f:
-            self.qa_data = json.load(f)
+        if os.path.exists(self.qa_db_file):
+            with open(self.qa_db_file, 'r') as f:
+                self.qa_data = json.load(f)
+        else:
+            self.qa_data = {}
     
     def find_answer(self, user_query):
         """Find answer based on user query"""

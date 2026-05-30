@@ -1,7 +1,5 @@
 from flask import Flask, request, jsonify
 import logging
-import hashlib
-import hmac
 from config import WEBHOOK_VERIFY_TOKEN
 from user_management import UserManager
 from qa_engine import QAEngine
